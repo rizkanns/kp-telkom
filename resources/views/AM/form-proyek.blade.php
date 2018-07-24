@@ -23,14 +23,13 @@
                 <br>
                 <br>
                 <div class="row">
-                    <label>ID</label>
-                    <label>{{ Auth::user()->id }}</label>
                     {{-- <label>ID</label> --}}
-                    {{-- <label>{{$pelanggan->id_pelanggan}}</label> --}}
+                    {{-- <label>{{ Auth::user()->email }}</label> --}}
+                    {{-- {{ Session::put('forSession') }} --}}
                     <div class="col-sm-12">
                         <div class="white-box">
                             <h1 class="text-center" style="color: #d51100; font-weight: 500">PROYEK / KEGIATAN</h1>
-                            <form class="form-horizontal form-material" action="{{ url('/AM-form-proyek/insert') }}" method = "post">
+                            <form class="form-horizontal form-material" action="{{ route('proyek_insert') }}" method = "post">
                                 {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-sm-12 col-lg-6">
@@ -57,6 +56,15 @@
                                             <label for="inputEmail3" class="col-sm-3 control-label">Alamat Delivery</label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control" id="inputEmail3" placeholder="Alamat Delivery" name="alamat_delivery">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-3 control-label">Rincian Pola Pembayaran</label>
+                                            <div class="col-sm-9">
+                                                <select class="selectpicker m-b-20" data-style="form-control" name="rincian_pembayaran">
+                                                    <option value="Sebelum">Sebelum Pembayaran</option>
+                                                    <option value="Setelah">Setelah Pembayaran</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
