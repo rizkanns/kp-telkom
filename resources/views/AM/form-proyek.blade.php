@@ -23,14 +23,17 @@
                 <br>
                 <br>
                 <div class="row">
+                    @foreach($proyek as $listproyek)
+                    @foreach($pelanggan as $listpelanggan)
                     {{-- <label>ID</label> --}}
                     {{-- <label>{{ Auth::user()->email }}</label> --}}
                     {{-- {{ Session::put('forSession') }} --}}
+                    {{ $listproyek->id_proyek }} {{ $listpelanggan->id_pelanggan }}
                     <div class="col-sm-12">
                         <div class="white-box">
                             <h1 class="text-center" style="color: #d51100; font-weight: 500">PROYEK / KEGIATAN</h1>
-                            <form class="form-horizontal form-material" action="{{ route('proyek_insert') }}" method = "post">
-                                {{ csrf_field() }}
+                            <form class="form-horizontal form-material" action="{{ route('proyek_insert', ['id' => $listproyek->id_proyek, 'id_pelanggan' => $listpelanggan->id_pelanggan]) }}" method = "get">
+                                {{-- {{ csrf_field() }} --}}
                                 <div class="row">
                                     <div class="col-sm-12 col-lg-6">
                                         <div class="form-group">
@@ -130,6 +133,8 @@
                             </form>
                         </div>
                     </div>
+                    @endforeach
+                @endforeach
                 </div>
                 <!--/.row -->
             </div>
